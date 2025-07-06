@@ -1,10 +1,9 @@
 import { Router } from "express";
+import { signUp } from "../controller/signup.controller.js";
 
 const userRouter = Router();
 
-userRouter.post("/:", (req, res) => {
-  res.send({ title: "create a new user" });
-});
+userRouter.post("/", signUp);
 userRouter.get("/", (req, res) => {
   res.send({ title: "get all users" });
 });
