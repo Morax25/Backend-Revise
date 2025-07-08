@@ -15,16 +15,6 @@ app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/subscription", subRoute);
 
-app.use((req, res, next) => {
-  res.status(404).json({ message: "Not Found" });
-});
-
-app.use((err, req, res, next) => {
-  res
-    .status(err.status || 500)
-    .json({ message: err.message || "Internal Server Error" });
-});
-
 app.listen(PORT, async () => {
   await dbConnect();
   console.log(`Server is running at http://localhost:${PORT}`);
